@@ -22,7 +22,7 @@
     "build": "webpack",
     "dev": "webpack-dev-server"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["frontend mentor", "challenge", "aditya sonel"],
+  "author": "Aditya Sonel",
   "license": "ISC"
 }

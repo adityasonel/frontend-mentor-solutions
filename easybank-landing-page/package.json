@@ -1,5 +1,5 @@
 {
-  "name": "social-media-dashboard-with-theme-switcher",
+  "name": "easybank-landing-page",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -22,7 +22,11 @@
     "build": "webpack",
     "dev": "webpack-dev-server"
   },
-  "keywords": ["frontend mentor", "challenge", "aditya sonel"],
+  "keywords": [
+    "frontend mentor",
+    "challenge",
+    "aditya sonel"
+  ],
   "author": "Aditya Sonel",
   "license": "ISC"
 }
