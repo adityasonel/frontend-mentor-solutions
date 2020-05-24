@@ -15,6 +15,7 @@
         --secondary-text-color: hsl(228, 12%, 44%);
 
         --primary-card-bg: hsl(225, 100%, 98%);
+        --secondary-card-bg: hsl(225, 100%, 96%);
     }
 }
 
@@ -25,6 +26,7 @@
         --secondary-text-color: hsl(228, 34%, 66%);
 
         --primary-card-bg: hsl(228, 28%, 20%);
+        --secondary-card-bg: hsl(228, 28%, 30%);
     }
 }
 
@@ -43,10 +45,16 @@ body {
 .main {
     display: flex;
     flex-direction: column;
+}
 
-    @media (min-width: $desktop) {
-        height: 100vh;
-    }
+.pattern-bg {
+    position: absolute;
+    background-color: var(--primary-card-bg);
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 232px;
+    z-index: -1;
 }
 
 .header {
@@ -59,16 +67,24 @@ body {
     }
 
     &-title {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
         color: var(--primary-text-color);
         font-weight: $fontBold;
+
+        @media (min-width: $desktop) {
+            font-size: 1.6rem;
+        }
     }
 
     &-stats {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         padding-top: 8px;
         color: var(--secondary-text-color);
         font-weight: $fontBold;
+
+        @media (min-width: $desktop) {
+            font-size: 0.9rem;
+        }
     }
 
     &-divider {
@@ -93,10 +109,11 @@ body {
     &-toggle-text {
         color: var(--secondary-text-color);
         font-weight: $fontBold;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
 
         @media (min-width: $desktop) {
             padding: 0px 16px;
+            font-size: 0.9rem;
         }
     }
 }
@@ -125,8 +142,10 @@ body {
         transition-duration: 0.2s;
 
         @media (min-width: $desktop) {
+
             &:hover {
-                transform: scale(1.04);
+                background-color: var(--secondary-card-bg);
+                transform: scale(1.01);
             }
 
         }
@@ -245,7 +264,8 @@ body {
 
         @media (min-width: $desktop) {
             &:hover {
-                transform: scale(1.04);
+                background-color: var(--secondary-card-bg);
+                transform: scale(1.01);
             }
 
         }
@@ -283,6 +303,15 @@ body {
             }
         }
     }
+}
+
+.dev {
+    cursor: pointer;
+    color: var(--primary-text-color);
+    text-decoration: underline;
+    font-family: monospace;
+    font-size: 10px;
+    text-align: center;
 }
 
 @import "./custom_toggle";
