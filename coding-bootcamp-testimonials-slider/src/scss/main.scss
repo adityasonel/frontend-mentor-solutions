@@ -1,0 +1,165 @@
+@import "./variables";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/pattern-curve.svg"), url("../images/pattern-bg.svg"), url("../images/pattern-quotes.svg");
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: bottom left, center 20px, center 60%;
+    background-size: 70%, 90%, 15%;
+    height: 100vh;
+    font-family: "Inter", sans-serif;
+
+    @media (min-width: $desktop) {
+        background-size: 40%, 40%, 10%;
+        background-position: bottom left, 78% 45%, 28% 36%;
+    }
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 960px;
+
+    @media (min-width: $desktop) {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+}
+
+.image {
+    border-radius: 6px;
+    width: 100%;
+
+    &-container {
+        position: relative;
+        margin: 55px auto 30px;
+        width: 70%;
+        max-width: 440px;
+        font-size: 0;
+        box-shadow: 0px 16px 42px -24px $darkBlue;
+
+        @media (min-width: $desktop) {
+            position: absolute;
+            margin: 0;
+            z-index: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &-button {
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0;
+
+        @media (min-width: $desktop) {
+            left: 10%;
+            transform: none;
+        }
+
+        img {
+            padding: 16px 20px;
+            background-color: $white;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $gray;
+            }
+
+            &:nth-child(1) {
+                border-top-left-radius: 50%;
+                border-bottom-left-radius: 50%;
+            }
+
+            &:nth-child(2) {
+                border-top-right-radius: 50%;
+                border-bottom-right-radius: 50%;
+            }
+
+            &.disabled {
+                opacity: 0.6;
+                cursor: none;
+            }
+        }
+    }
+}
+
+.content {
+    margin-top: 50px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: $fontLight;
+
+    @media (min-width: $desktop) {
+        margin: 0;
+        text-align: left;
+        font-size: 28px;
+        font-weight: $fontLight;
+    }
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 74%;
+        max-width: 680px;
+        color: $darkBlue;
+
+        @media (min-width: $desktop) {
+            width: 64%;
+            display: block;
+            z-index: 1;
+        }
+    }
+
+    &-name {
+        margin-top: 18px;
+        font-size: 16px;
+        font-weight: $fontBold;
+
+        @media (min-width: $desktop) {
+            display: inline-block;
+            font-size: 18px;
+        }
+    }
+
+    &-jobPosition {
+        color: $grayishBlue;
+        font-size: 16px;
+        margin-top: 4px;
+
+        @media (min-width: $desktop) {
+            display: inline-block;
+            margin-left: 6px;
+        }
+    }
+}
+
+.dev {
+    cursor: pointer;
+    color: $grayishBlue;
+    text-decoration: none;
+    font-family: monospace;
+    position: absolute;
+    bottom: -10%;
+    text-align: center;
+    left: 0;
+    right: 0;
+
+    @media (min-width: $desktop) {
+        bottom: 1%;
+    }
+}

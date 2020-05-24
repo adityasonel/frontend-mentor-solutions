@@ -1,0 +1,288 @@
+@import "./variables";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@supports(--css: variables) {
+
+    :root,
+    [data-theme="light"] {
+        --bg-color: hsl(0, 0%, 100%);
+        --primary-text-color: hsl(230, 17%, 14%);
+        --secondary-text-color: hsl(228, 12%, 44%);
+
+        --primary-card-bg: hsl(225, 100%, 98%);
+    }
+}
+
+@supports(--css: variables) {
+    [data-theme="dark"] {
+        --bg-color: hsl(232, 19%, 15%);
+        --primary-text-color: hsl(0, 0%, 100%);
+        --secondary-text-color: hsl(228, 34%, 66%);
+
+        --primary-card-bg: hsl(228, 28%, 20%);
+    }
+}
+
+body {
+    font-weight: $fontLight;
+    font-family: "Inter",
+        sans-serif;
+    margin: 4vh 10vw;
+    background-color: var(--bg-color);
+
+    @media (min-width: $desktop) {
+        margin: 6vh 12vw;
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $desktop) {
+        height: 100vh;
+    }
+}
+
+.header {
+    align-items: center;
+    justify-content: space-between;
+
+    @media (min-width: $desktop) {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &-title {
+        font-size: 1.6rem;
+        color: var(--primary-text-color);
+        font-weight: $fontBold;
+    }
+
+    &-stats {
+        font-size: 0.9rem;
+        padding-top: 8px;
+        color: var(--secondary-text-color);
+        font-weight: $fontBold;
+    }
+
+    &-divider {
+        display: flex;
+        height: 1px;
+        width: 100%;
+        color: var(--secondary-text-color);
+        background-color: var(--secondary-text-color);
+        margin: 20px 0px;
+
+        @media (min-width: $desktop) {
+            display: none;
+        }
+    }
+
+    &-toggle-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-toggle-text {
+        color: var(--secondary-text-color);
+        font-weight: $fontBold;
+        font-size: 0.9rem;
+
+        @media (min-width: $desktop) {
+            padding: 0px 16px;
+        }
+    }
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 16px;
+    margin: 48px 0px;
+
+    @media (min-width: $desktop) {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 24px;
+    }
+
+    &-item {
+        cursor: pointer;
+        position: relative;
+        border-radius: 4px;
+        background-color: var(--primary-card-bg);
+        padding: 36px 24px;
+        text-align: center;
+        transition-property: all;
+        transition-property: transform;
+        transition-duration: 0.2s;
+
+        @media (min-width: $desktop) {
+            &:hover {
+                transform: scale(1.04);
+            }
+
+        }
+
+        span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 3px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        &__f {
+            background-color: $cFacebook;
+        }
+
+        &__t {
+            background-color: $cTwitter;
+        }
+
+        &__i {
+            background: $cInstagram;
+        }
+
+        &__y {
+            background-color: $cYoutube;
+        }
+
+        &__user {
+            color: var(--secondary-text-color);
+            font-size: 10px;
+            font-weight: $fontBold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__count {
+            font-size: 46px;
+            font-weight: $fontBold;
+            color: var(--primary-text-color);
+            margin-top: 32px;
+        }
+
+        &__title {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--secondary-text-color);
+        }
+
+        &__change-up {
+            margin-top: 24px;
+            font-size: 10px;
+            font-weight: $fontBold;
+            color: $limeGreen;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__change-down {
+            margin-top: 24px;
+            font-size: 10px;
+            font-weight: $fontBold;
+            color: $brightRed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &-item__icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+    }
+
+    &-item__c-icon {
+        width: 8px;
+        height: 4px;
+        margin-right: 6px;
+    }
+}
+
+.stats-today {
+    &__title {
+        color: var(--secondary-text-color);
+        font-size: 22px;
+        font-weight: $fontBold
+    }
+}
+
+.stats-today__card {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 16px;
+    margin: 24px 0;
+
+    @media (min-width: $desktop) {
+        grid-template-columns: repeat(4, 2fr);
+        grid-gap: 24px;
+    }
+
+    &-item {
+        cursor: pointer;
+        border-radius: 4px;
+        padding: 24px 30px;
+        background-color: var(--primary-card-bg);
+        transition-property: all;
+        transition-property: transform;
+        transition-duration: 0.2s;
+
+        @media (min-width: $desktop) {
+            &:hover {
+                transform: scale(1.04);
+            }
+
+        }
+
+        p {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: $fontBold;
+            font-size: 12px;
+            color: var(--secondary-text-color);
+        }
+
+        h1 {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary-text-color);
+
+            span {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                h6 {
+                    margin-left: 4px;
+                    font-size: 10px;
+                    color: $limeGreen;
+                }
+            }
+
+            span .down {
+                color: $brightRed;
+            }
+        }
+    }
+}
+
+@import "./custom_toggle";
